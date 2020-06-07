@@ -71,7 +71,7 @@ app.use(campRoutes);
 app.use(authRoutes);
 
 //Add the listening funciton
-// app.listen(process.env.PORT, process.env.IP, function(){
+// app.listen(3000, function(){
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("Server is listening");
 });
