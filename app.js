@@ -19,9 +19,9 @@ var authRoutes = require("./routers/auth"),
 
 // seedDB();
 // Connect to database
-// var URL = process.env.DATABASEURL || "mongodb://localhost/Yelp"
+var URL = process.env.DATABASEURL || "mongodb://localhost/Yelp"
 db.set('useUnifiedTopology', true);
-db.connect("mongodb+srv://lou:B4qs2$Qs7PXOOaeO@amaya-ade3p.mongodb.net/<dbname>?retryWrites=true&w=majority", {useNewUrlParser: true});
+db.connect(URL, {useNewUrlParser: true});
 
 
 //Add body-Parser this allows the node js to convert the request.body into a javascript file
