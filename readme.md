@@ -1,15 +1,18 @@
-What is REST?
-A pattern for defining our routes.
-A mapping between HTTP Routes and CRUD (Create, Read, Update
-Destroy
+This project is created using the following stack:
+-----------------
+FRONTEND
+----------------
+HTML 5
+JavaScript
+CSS 3
+Bootstrap 4
 
-RESTful Routes
+-----------------
+BACKEND
+----------------
+NodeJS
+Express
+MongoDB
+Mongoose
 
-route name		url	(Sample)	verb		description
-INDEX			/dogs			GET			Display list of dogs
-NEW				/dogs/new		GET			Displays form to make a new dog
-CREATE			/dogs			POST		Add new dog to database
-SHOW			/dogs/:id		GET			Shows information about one dog (object)
-EDIT			/dogs/:id/edit	GET			Show edit FORM for one dog
-UPDATE			/dogs/:id		PUT			Update a particular dog, then redirect
-DESTROY			/dogs/:id		DELETE		Delete a particular dog, then redirect
+Please check package.json to see all Nodejs dependencies I've used
