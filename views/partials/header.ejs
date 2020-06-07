@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Google font link -->
+		<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<!-- Bootstrap link  -->
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- link to public css -->
+		<link rel="stylesheet" type="text/css" href="/app.css" >
+		<title>Yelp Camp - Lou</title>
+	</head>
+<body>
+	<nav class="navbar navbar-expand-sm navbar-light bg-light">
+	  <a class="navbar-brand" href="#">Yelp Camp</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav">
+			<a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+			<a class="nav-item nav-link" href="/camps">Camp Site</a>
+		</div>
+		<div class="navbar-nav ml-auto">
+			<% if(!currentUser){ %>
+				<li><a class="nav-item nav-link" href="/login">Login</a></li>
+				<li><a class="nav-item nav-link" href="/register">Register</a></li>
+			<% } else { %>
+				<li><a class="nav-item nav-link" href="#">Hi <%= currentUser.username %></a></li>
+				<li><a class="nav-item nav-link" href="/logout">Logout</a></li>
+			<% } %>
+		</div>
+	  </div>
+	</nav>
+	<div class = "container-md">
+		<% if (info && info.length>0) { %>
+			<div class="alert alert-info">
+				<%= info %>
+			</div>
+		<% } %>
+		<% if (error && error.length>0) { %>
+			<div class="alert alert-danger">
+				<%= error %>
+			</div>
+		<% } %>
+		<% if (success && success.length>0) { %>
+			<div class="alert alert-success">
+				<%= success %>
+			</div>
+		<% } %>
+	</div>

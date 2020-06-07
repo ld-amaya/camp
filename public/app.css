@@ -1,0 +1,22 @@
+5row{
+	display:flex;
+	flex-wrap: wrap;
+}
+.form-group{
+	width:40%;
+	margin:0 auto;
+}
+.img-thumbnail img {
+	width:100%;
+}
+.img-thumbnail{
+	padding:0;
+}
+.card-columns{
+	@include media-breakpoint-only(md) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+}

@@ -1,0 +1,14 @@
+<%- include ("../partials/header") %>
+<div class="container">
+	<h1 class="text-center">Add New Comment to <span name="campName"><%=camps.campName%></span></h1>
+	<form action="/camps/<%=camps.id%>/comment?_method=PUT" method="POST">
+		<div class="form-group">
+			<label for="CampName"></label>
+			<input type="text" class ="form-control" id="CampName" name="campComment[text]" placeholder="Comment">
+			<label></label>
+			<button type="buton" class = "btn btn-primary btn-block btn-lg">Submit Comment!</button>
+		</div>
+		
+	</form>
+</div>
+<%- include ("../partials/footer") %>
