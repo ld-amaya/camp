@@ -16,7 +16,8 @@ var dbSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "comment"
 		}
-	]
+	],
+	campDate: Date
 });
 
 //3. Create the model

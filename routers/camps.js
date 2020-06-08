@@ -46,12 +46,14 @@ router.post("/camps", middleWare.isLoggedIn, function(request,respond){
 		author = {
 			id: request.user.id,
 			username: request.user.username
-		}
+		},
+		campDate = Date("Y-m-d")
 	var newCamp = {
 		campName:campName,
 		img:img,
 		caption:caption,
 		author: author,
+		campDate:campDate
 	}
 	// request.body.camp.body = request.sanitize(request.body.camp.body);
 	campDB.create(newCamp, function(err,addcamp){
@@ -73,14 +75,22 @@ router.get("/camps/new", middleWare.isLoggedIn, function(request,respond){
 
 // View one camp
 router.get("/camps/:id", function(request,respond){
-	campDB.findById(request.params.id).populate("comments").exec(function(err,campSite){
+	//Get all campes
+	campDB.find({},function(err,campName){
 		if (!err){
-			respond.render("campsite/show",{camps:campSite});
-		}else {
-			request.flash("error","Error in retrieving page.")
+			campDB.findById(request.params.id).populate("comments").exec(function(err,campSite){
+				if (!err){
+					respond.render("campsite/show",{camps:campSite, campName:campName});
+				}else {
+					request.flash("error","Error in retrieving page.")
+					respond.redirect("back")
+				}
+			});	
+		} else {
+			request.flash("error","Error in camp sites.")
 			respond.redirect("back")
 		}
-	});	
+	});
 });
 
 // Edit camp

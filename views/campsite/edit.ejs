@@ -7,12 +7,16 @@
 			<input type="text" class ="form-control" name="camp[campName]" id="CampName" value = "<%=camps.campName%>">
 			<label for="url"></label>
 			<input type="text" class="form-control" name="camp[img]" id="url" value = "<%=camps.img%>">
+			<% if(camps.img){ %>
+				<div class="img-thumbnail">
+					<img src="<%= camps.img %>" >
+				</div>
+			<% } %>
 			<label for="caption"></label>
 			<input type="text" class="form-control" name="camp[caption]" id="caption" value = "<%=camps.caption%>">
 			<label></label>
 			<button type="buton" class = "btn btn-primary btn-block btn-lg">Submit Camp</button>
 		</div>
-		
 	</form>
 </div>
 <%- include ("../partials/footer") %>

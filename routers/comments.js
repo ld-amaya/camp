@@ -25,6 +25,7 @@ router.put("/camps/:id/comment", middleWare.isLoggedIn, function(request,respond
 					//add username and id to comment
 					comment.author.id = request.user.id;
 					comment.author.username = request.user.username;
+					comment.commentDate = Date();
 					comment.save();
 	
 					//save comment

@@ -6,9 +6,12 @@
 				<p>Yelp Camp</p> 
 			</div>
 			<div class="list-group">
-				<li class="list-group-item active"> Intro 1 </li>
-				<li class="list-group-item"> Intro 2 </li>
-				<li class="list-group-item"> Intro 3 </li>
+				<% campName.forEach(function(camp){ %>
+					<% if (camp._id == camps.id){ %>
+						<a class="list-group-item list-group-item-action active"  href="/camps/<%=camp._id%>"> <%= camp.campName %></a>
+					<%} else { %> 
+						<a class="list-group-item list-group-item-action" href="/camps/<%=camp._id%>"> <%= camp.campName %></a>
+					<%} }) %>
 			</div>		
 		</div>
 		<div class ="col-md-9">
@@ -53,7 +56,11 @@
 							<div class="col-12">
 								<div class = "d-flex justify-content-between mt-3">
 									<strong><%= comment.author.username %></strong>
-									<span>10 days ago</span>
+									<% if(comment.commentDate){ %>
+										<%= new Date(comment.commentDate).toDateString(); %>
+									<% } else { %>
+										<span>10 days ago</span>
+									<% } %>
 								</div>
 								<div><%= comment.text %></div>
 								<% if (currentUser && comment.author.id.equals(currentUser._id)){ %>
