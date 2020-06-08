@@ -19,6 +19,7 @@ router.get("/camps/:id/comment", middleWare.isLoggedIn, function(request,respond
 router.put("/camps/:id/comment", middleWare.isLoggedIn, function(request,respond){
 	campDB.findById(request.params.id,function(err,commentData){
 		if(!err){
+			console.log(request.body.campComment);
 			comments.create(request.body.campComment,function(err,comment){
 				if(!err){
 					//add username and id to comment
